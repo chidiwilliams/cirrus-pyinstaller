@@ -4,6 +4,9 @@ macos_instance:
 build_task:
   name: Build
 
+  env:
+    PATH: ${HOME}/.local/bin:${PATH}
+
   python_script:
     - brew update
     - brew install python@3.10
