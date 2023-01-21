@@ -22,5 +22,6 @@ build_task:
     - poetry install
 
   run_script:
+    - source .venv/bin/activate
     - pyinstaller --noconfirm main.spec
     - dist/main.app/Contents/MacOS/main
