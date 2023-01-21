@@ -26,7 +26,7 @@ build_task:
     - pyinstaller --noconfirm main.spec
     - dist/main.app/Contents/MacOS/main
 
-  dist_artificats:
+  dist_artifacts:
     name: main
     paths:
       - dist/main.app
