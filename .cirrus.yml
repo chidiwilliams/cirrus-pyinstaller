@@ -1,20 +1,23 @@
 macos_instance:
   image: ghcr.io/cirruslabs/macos-ventura-xcode:latest
 
-python_script:
-  - brew update
-  - brew install python@3.10
-  - ln -s python3 /opt/homebrew/opt/python@3.10/bin/python
+build_task:
+  name: Build
 
-poetry_script:
-  - curl -sSL https://install.python-poetry.org | python3 -
-  - poetry config experimental.new-installer false
-  - poetry config virtualenvs.create true
-  - poetry config virtualenvs.in-project true
+  python_script:
+    - brew update
+    - brew install python@3.10
+    - ln -s python3 /opt/homebrew/opt/python@3.10/bin/python
 
-python_dependencies_script:
-  - poetry install
+  poetry_script:
+    - curl -sSL https://install.python-poetry.org | python3 -
+    - poetry config experimental.new-installer false
+    - poetry config virtualenvs.create true
+    - poetry config virtualenvs.in-project true
 
-run_script:
-  - pyinstaller --noconfirm main.spec
-  - dist/main.app/Contents/MacOS/main
+  python_dependencies_script:
+    - poetry install
+
+  run_script:
+    - pyinstaller --noconfirm main.spec
+    - dist/main.app/Contents/MacOS/main
