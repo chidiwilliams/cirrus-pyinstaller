@@ -25,3 +25,8 @@ build_task:
     - source .venv/bin/activate
     - pyinstaller --noconfirm main.spec
     - dist/main.app/Contents/MacOS/main
+
+  dist_artificats:
+    name: main
+    paths:
+      - dist/main.app
