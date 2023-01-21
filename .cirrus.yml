@@ -25,8 +25,9 @@ build_task:
     - source .venv/bin/activate
     - pyinstaller --noconfirm main.spec
     - dist/main.app/Contents/MacOS/main
+    - ditto -c -k --keepParent dist/main.app dist/main.zip
 
   dist_artifacts:
     name: main
     paths:
-      - dist/main.app
+      - dist/main.zip
